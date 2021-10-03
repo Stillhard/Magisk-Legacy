@@ -350,6 +350,7 @@ int SystemProperties::Delete(const char *name) {
 
   // We rewrited the prop value, just like updating a prop to wake up other threads
   __futex_wake(&prev->serial, INT32_MAX);
+  
   // There is only a single mutator, but we want to make sure that
   // updates are visible to a reader waiting for the update.
   atomic_store_explicit(serial_pa->serial(),

@@ -381,7 +381,7 @@ bool prop_area::add(const char* name, unsigned int namelen, const char* value,
 }
 
 prop_info* prop_area::rm(const char *name) {
-    prop_bt* node = find_prop_bt(root_node(), name, false);
+  prop_bt* node = find_prop_bt(root_node(), name, false);
   if (!node)
      return nullptr;
   atomic_uint_least32_t prev_offset(atomic_load_explicit(&node->prop, memory_order_acquire));
